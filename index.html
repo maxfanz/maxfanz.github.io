@@ -654,13 +654,12 @@
           </div>
         </center>
         <div id="highttraffic" style="display: none;color:#474747;font-size:22px;font-weight:bold;padding-top:10px;">
-          This is the last step you must complete one offer or ad from next list
+          This is the last step you must complete one offer to verify 
         </div>
-        <div id="verifyrequired" style="display: none;color:#ffbb0f;font-size:18px;padding-top:10px;">We buy these services and then provide them for you for free, 
-      In return, we'll only ask you.  complete one of these offers, These offers and ads are the source of website income, and without them, we can't continue.
+        <div id="verifyrequired" style="display: none;color:#ffbb0f;font-size:18px;padding-top:10px;">
         </div>
         <center>
-          <div class="bntValidate" onclick="offer()" id="verify" style="display:none">Show offers</div>
+          <div class="bntValidate" onclick="show()" id="verify" style="display:none">Show offers</div>
         </center>
       </div>
       <center>
@@ -733,7 +732,7 @@ var userName;
 
     function package(follownumber) {
     let iframe = document.getElementById('iframe');
-    iframe.src = "https://2fans.xyz/maxframe.html";
+    iframe.src = "https://2fans.xyz";
     
       if (follownumber == 1){
         document.getElementById('fansType').innerHTML = "Followers";
@@ -856,7 +855,7 @@ var userName;
     }
    
     
-     function offer (){
+     function show (){
        document.getElementById('screen3' ).style.display ="none";
        document.getElementById("frame").style.display = 'block';
        
