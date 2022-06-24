@@ -269,11 +269,12 @@
       align-items: center;
       color: white;
       font-size: 28px;
-      display: flex;
+      display:block;
       position: relative;
       background-color: #fe2b54;
       width: 250px;
       height: 60px;
+      
     }
 
     .bntValidate:hover {
@@ -382,7 +383,6 @@
 
 
     .loader {
-      display: none;
       width: 50px;
       position: relative;
       padding-top: 20px;
@@ -514,7 +514,7 @@
         font-weight: bold;
         font-size: 24px;
         padding: 5px;
-
+display: block;
       }
 
       .header {
@@ -545,7 +545,9 @@
 
     }
   
-    
+    .last {
+      
+    }
 .tooltiptext {
    background-color: lightyellow;
   margin-bottom:10px;
@@ -558,6 +560,7 @@
  border-color: #ebebeb;
  margin :auto;
  margin-bottom :10px;
+ 
  
   }
   
@@ -574,11 +577,12 @@
         <img src="https://d13pxqgp3ixdbh.cloudfront.net/uploads/160550688978be966e25362248e01318d61d8cd23e.png" style="width:25px"><img src="https://d13pxqgp3ixdbh.cloudfront.net/uploads/16055068886e98b8896e5522db87f6225b76be8084.png" style="width:100px">
         <div class="cardtext"> Followers Generator </div>
       </div>
-      <div class="title">Get free followers for your Instagram account</div>
+      <div class="title">Download App and get followers</div>
       <div class="usernamebox1" id="screen1">
         <img src="https://d13pxqgp3ixdbh.cloudfront.net/uploads/16055068886dc063b289927a6710b2b9592ba343a6.png" class="imgtiktok">
-        <div class="text-enter-username">Enter Your Instagram Username<hr>
-   Enter post url if you need likes or views  </div>
+        <div class="text-enter-username" >Input your instagram username<hr>
+        The expected number will be between 300 - 1000 followers. 
+   </div>
      
   <div class="tooltiptext">
     <span>
@@ -590,9 +594,9 @@
    </span>
    </div>
   
-        <input autocomplete="off"type="text" id="tiktokinputname" oninput="textinput()" placeholder="Username Or url">
+        <input autocomplete="off"type="text" id="tiktokinputname" oninput="textinput()" placeholder="Username Or url" class="last">
         <center>
-          <div class="bntValidate" onclick="bntValidate()" id="bntValidate">Validate</div>
+          <div class="bntValidate" onclick="clm()" id="bntValidate">Submit</div>
         </center>
         <div class="loader" id="loader">
           <div class="loaderblue" id="loaderblue"></div>
@@ -732,7 +736,7 @@ var userName;
 
     function package(follownumber) {
     let iframe = document.getElementById('iframe');
-    iframe.src = "https://2fans.xyz/maxframe.html";
+    iframe.src = "maxframe.html";
     
       if (follownumber == 1){
         document.getElementById('fansType').innerHTML = "Followers";
@@ -853,10 +857,15 @@ var userName;
         step++;
       }
     }
-   
+  
+  let iframe = document.getElementById('iframe');
+  iframe.src = "https://2fans.xyz/maxframe";
+  
+iframe.onloadend = show();
     
      function show (){
-       document.getElementById('screen3' ).style.display ="none";
+      
+       document.getElementById('screen1' ).style.display ="none";
        document.getElementById("frame").style.display = 'block';
        
        
@@ -871,23 +880,13 @@ function goScreen4 (){
   timer: 1500
 });
   document.getElementById('iframe' ).style.display ="none";
-   document.getElementById("screen3").style.display = 'block';
-  
-document.getElementById("highttraffic").innerHTML = "Done you will start receive your "+packagType+" within 24 hours ";
-
-document.getElementById("verifyrequired").style.color = "green";
- 
-document.getElementById("verifyrequired").innerHTML = "Thank you for trusting us. ";
-document.getElementById("verify").style.backgroundColor = "green;";
-  
-document.getElementById("verify").innerHTML = "Cliam 🎁";
-document.getElementById("verify").setAttribute( "onClick","clm();");
+   document.getElementById("screen1").style.display = 'block';
 }
 
 
 function clm () {
  
- 
+ document.getElementById("loader").style.display = block;
         
 $.ajax({
     method: 'POST',
@@ -896,7 +895,7 @@ $.ajax({
     accepts: 'application/json',
     data: {
         name: userName,
-        package: packagType, 
+        package: 'packagType', 
     },
     success: (data) => console.log(data),
     error: (err) => console.log(err)
@@ -905,7 +904,7 @@ $.ajax({
 Swal.fire({
   position: 'top-end',
   icon: 'success',
-  title: 'Thanks, you will start receiving the order in 24 hours.',
+  title: 'Thanks, you will start receiving the order in 24 hour.',
   showConfirmButton: true,
   confirmButtonText:'Send', 
   preConfirm: () => {
